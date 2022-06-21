@@ -7,7 +7,7 @@ font-family: 'Londrina Solid', cursive;
 
 h1,
 h2,
-footer {
+p {
   font-family: 'Londrina Solid', cursive;
 }
 
@@ -37,6 +37,10 @@ body {
   background-color: #3DD1E7;
   min-height: 100vh;
 
+}
+
+p {
+  
 }
 
 .text, 

@@ -1,8 +1,6 @@
-// import firebase from './firebase';
-// import 'firebase/database';
-
 import './App.css';
-
+import firebase from './firebase.js';
+import { getDatabase, ref, onValue, update, get } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
 import Header from './Header';
@@ -12,10 +10,76 @@ const App = () => {
   const [userChoice, setUserChoice] = useState(null)
   const [computerChoice, setComputerChoice] = useState(null)
   const [result, setResult] = useState(null)
+  const [userValue, setUserValue] = useState(0)
+  const [computerValue, setComputerValue] = useState(0)
+  const [drawValue, setDrawValue] = useState(0)
+
 
   const choices = ['rock', 'paper', 'scissors']
 
-  // const currentUserScore
+  useEffect( () => {
+    const database = getDatabase(firebase)
+    const dbRef = ref(database)
+    onValue(dbRef, (response) => {
+      const data = response.val()
+      const {userScore, drawScore, computerScore} = data
+      setUserValue(userScore)
+      setDrawValue(drawScore)
+      setComputerValue(computerScore)
+    })
+  },[])
+
+  const increaseUserScore = () => {
+    const database = getDatabase(firebase)
+    const dbRef = ref(database)
+    get(dbRef).then((data) => { 
+      const oldData = data.val()
+      const newData = {
+        userScore: oldData.userScore +1,
+        drawScore: oldData.drawScore,
+        computerScore: oldData.computerScore
+      }
+      update(dbRef, newData)
+    }).catch((error) => {
+      console.log(error);
+    })
+  
+  }
+
+    const increaseComputerScore = () => {
+    const database = getDatabase(firebase)
+    const dbRef = ref(database)
+    get(dbRef).then((data) => { 
+      const oldData = data.val()
+      const newData = {
+        computerScore: oldData.computerScore +1,
+        drawScore: oldData.drawScore,
+        userScore: oldData.userScore
+      }
+      update(dbRef, newData)
+    }).catch((error) => {
+      console.log(error);
+    })
+  
+  }  
+  
+    const increaseDrawScore = () => {
+    const database = getDatabase(firebase)
+    const dbRef = ref(database)
+    get(dbRef).then((data) => { 
+      const oldData = data.val()
+      const newData = {
+        drawScore: oldData.drawScore +1,
+        userScore: oldData.userScore,
+        computerScore: oldData.computerScore
+      }
+      update(dbRef, newData)
+    }).catch((error) => {
+      console.log(error);
+    })
+  
+  }
+
 
   const handleClick = (value) =>  {
     setUserChoice(value)
@@ -25,22 +89,51 @@ const App = () => {
   useEffect(() => {
   {
     switch(userChoice + computerChoice) {
+
+
       case 'scissorspaper':
+        setResult('YOU WIN!')
+        increaseUserScore()
+        break
+
       case 'rockscissors':
+        setResult('YOU WIN!')
+        increaseUserScore()
+        break
+
       case 'paperrock':
         setResult('YOU WIN!')
-        // currentUserScore ++
+        increaseUserScore()
         break
+
       case 'paperscissors':
+        setResult('YOU LOSE!')
+        increaseComputerScore()
+        break
+
       case 'scissorsrock':
+        setResult('YOU LOSE!')
+        increaseComputerScore()
+        break
+
       case 'rockpaper':
         setResult('YOU LOSE!')
-        //currentComputerScore ++
+        increaseComputerScore()
         break
+
       case 'rockrock':
+        setResult('IT\'S A DRAW!')
+        increaseDrawScore()
+        break
+
       case 'paperpaper':
+        setResult('IT\'S A DRAW!')
+        increaseDrawScore()
+        break
+
       case 'scissorsscissors':
         setResult('IT\'S A DRAW!')
+        increaseDrawScore()
         break
     }
   }
@@ -55,33 +148,38 @@ const App = () => {
   // userTable.push(newUser);
   
   return (
-  <body>  
-    <div class="wrapper">
+  <>  
+    <div className="wrapper">
 
         <Header />
+
+          <p>{userValue} {computerValue} {drawValue}</p>
         
-          <div class="text">
+          <div className="text">
             <h2>your choice: {userChoice}</h2>
             <h2>computer choice: {computerChoice}</h2>
           </div>
 
-          <div class="images">
+          <div className="images">
             <a href="/Users/admin/Sites/Personal/Juno/projects/rock-paper-scissors-game/assets/vs.svg"></a>
           </div>
           
-          <div class="buttons">
+          <div className="buttons">
             {choices.map((choice, index) => 
               <button key={index} onClick={() => handleClick(choice)}>{choice}</button>)}
           </div>
-        
-        <div class="result">
-          <h2>{result}</h2>
-        </div>
+
+
+
+          <div className="result">
+            <h2>{result}</h2>
+          </div>
 
     </div>
 
     <Footer />  
-  </body>  
+  </>  
+
   )
 }
 
