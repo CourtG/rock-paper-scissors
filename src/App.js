@@ -80,6 +80,11 @@ const App = () => {
   
   }
 
+  // function handleHover() {
+  //   setUserChoice('scissors');
+  // }
+  
+
 
   const handleClick = (value) =>  {
     setUserChoice(value)
@@ -159,7 +164,25 @@ const App = () => {
           </div>
 
           <div className="result">
+            {/* <div className="userChoice">
+              <img src= {
+                userChoice !== ''
+                  ? `./assets/${userChoice}.png`
+                  : 
+                } alt="image of choice (rock, paper, or scissors)" />
+            </div> */}
+
+
             <h2>{result}</h2>
+
+            {/* <div className="userChoice">
+              <img src= {
+                userChoice !== null
+                  ? `./assets/${userChoice}.png`
+                  : 
+                } alt="image of choice (rock, paper, or scissors)" />
+            </div> */}
+
           </div>
           
           <div className="buttons">
