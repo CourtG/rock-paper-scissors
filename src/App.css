@@ -1,32 +1,125 @@
-.App {
+/* FONT STYLES */
+
+@font-face { 
+font-family: 'Londrina Solid', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
+}
+
+h1,
+h2,
+footer {
+  font-family: 'Londrina Solid', cursive;
+}
+
+h1 {
   text-align: center;
+  font-size: calc(50px + 2vmin);
+  color: #e3d5d6;
+  text-shadow: 2px 5px #f5494c;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text h2 {
+  font-size: calc(15px + 2vmin);
+  color: #3e403f;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.result h2 {
+
+  font-size: calc(25px + 2vmin);
+  color:#f5494c;
+  text-shadow: 2px 2px #e3d5d6;
+}
+
+/* GENERAL STYLES */
+
+body {
+  background-color: #3DD1E7;
+  min-height: 100vh;
+
+}
+
+.text, 
+.result {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+
+
+/* BUTTON STYLES */
+
+button {
+  background-color: #f5494c;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  width: 100%;
+  max-width: 100px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-5deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  border: 2px solid #e3d5d6;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+button:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+/* FOOTER STYLES */
+
+footer {
+  text-align: center;
+  color: #e3d5d6;
+  background-color: #3e403f;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 768px) {
+  button {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {

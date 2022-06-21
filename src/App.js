@@ -1,12 +1,18 @@
-import { useEffect } from 'react';
-import {useState} from 'react';
+// import firebase from './firebase';
+// import 'firebase/database';
 
 import './App.css';
+
+import { useEffect, useState } from 'react';
+
+import Header from './Header';
+import Footer from './Footer';
 
 const App = () => {
   const [userChoice, setUserChoice] = useState(null)
   const [computerChoice, setComputerChoice] = useState(null)
-  const [ result, setResult] = useState(null)
+  const [result, setResult] = useState(null)
+
   const choices = ['rock', 'paper', 'scissors']
 
   // const currentUserScore
@@ -45,21 +51,37 @@ const App = () => {
     setComputerChoice(randomChoice)
   }
 
-  const checkResult = () => {
-
-  }
-
+  // const userTable = firebase.database().ref('users');
+  // userTable.push(newUser);
+  
   return (
-    <div>
-        <h1>user choice is: {userChoice}</h1>
-        <h1>computer choice is: {computerChoice}</h1>
-        
-        {choices.map((choice, index) => 
-          <button key={index} onClick={() => handleClick(choice)}>{choice}</button>)}
+  <body>  
+    <div class="wrapper">
 
-          <h1>{result}</h1>
+        <Header />
+        
+          <div class="text">
+            <h2>your choice: {userChoice}</h2>
+            <h2>computer choice: {computerChoice}</h2>
+          </div>
+
+          <div class="images">
+            <a href="/Users/admin/Sites/Personal/Juno/projects/rock-paper-scissors-game/assets/vs.svg"></a>
+          </div>
+          
+          <div class="buttons">
+            {choices.map((choice, index) => 
+              <button key={index} onClick={() => handleClick(choice)}>{choice}</button>)}
+          </div>
+        
+        <div class="result">
+          <h2>{result}</h2>
+        </div>
 
     </div>
+
+    <Footer />  
+  </body>  
   )
 }
 
