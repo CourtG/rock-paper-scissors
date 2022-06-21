@@ -22,7 +22,7 @@ const App = () => {
     const dbRef = ref(database)
     onValue(dbRef, (response) => {
       const data = response.val()
-      const {userScore, drawScore, computerScore} = data
+      const {userScore, computerScore} = data
       setUserValue(userScore)
       // setDrawValue(drawScore)
       setComputerValue(computerScore)
