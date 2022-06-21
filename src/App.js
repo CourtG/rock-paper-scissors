@@ -144,24 +144,20 @@ const App = () => {
     setComputerChoice(randomChoice)
   }
 
-  // const userTable = firebase.database().ref('users');
-  // userTable.push(newUser);
-  
+
   return (
   <>  
     <div className="wrapper">
 
         <Header />
-
-          <p>{userValue} {computerValue} {drawValue}</p>
         
           <div className="text">
             <h2>your choice: {userChoice}</h2>
             <h2>computer choice: {computerChoice}</h2>
           </div>
 
-          <div className="images">
-            <a href="/Users/admin/Sites/Personal/Juno/projects/rock-paper-scissors-game/assets/vs.svg"></a>
+          <div className="result">
+            <h2>{result}</h2>
           </div>
           
           <div className="buttons">
@@ -169,10 +165,11 @@ const App = () => {
               <button key={index} onClick={() => handleClick(choice)}>{choice}</button>)}
           </div>
 
-
-
-          <div className="result">
-            <h2>{result}</h2>
+          <p>SCORES</p>
+          
+          <div className="scores">
+            <p>Humans:{userValue} </p>
+            <p>Machine:{computerValue}</p>
           </div>
 
     </div>

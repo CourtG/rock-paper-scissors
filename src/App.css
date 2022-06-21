@@ -5,56 +5,93 @@ font-family: 'Londrina Solid', cursive;
   src: url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
 }
 
-h1,
-h2,
-p {
-  font-family: 'Londrina Solid', cursive;
+@font-face {
+  font-family: 'Londrina Shadow', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap')
+}
+
+@font-face {
+  font-family: 'Press Start 2P', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 }
 
 h1 {
+  font-family: 'Londrina Solid', cursive;
   text-align: center;
-  font-size: calc(50px + 2vmin);
+  font-size: calc(75px + 2vmin);
   color: #e3d5d6;
   text-shadow: 2px 5px #f5494c;
+  margin: 0 auto;
 }
 
 .text h2 {
+  font-family: 'Londrina Shadow', cursive;
   font-size: calc(15px + 2vmin);
   color: #3e403f;
 
 }
 
 .result h2 {
-
-  font-size: calc(25px + 2vmin);
+  font-family: 'Londrina Solid', cursive;
+  font-size: calc(70px + 2vmin);
   color:#f5494c;
   text-shadow: 2px 2px #e3d5d6;
+}
+
+footer a,
+footer p {
+  text-decoration: none;
+  color: #e3d5d6;
+  font-family: 'Londrina Solid', cursive;
+  letter-spacing: 00.1em;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* GENERAL STYLES */
 
 body {
   background-color: #3DD1E7;
-  min-height: 100vh;
-
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-p {
-  
-}
-
-.text, 
-.result {
+.scores {
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
+}
+
+.wrapper {
+  margin: 0 0 auto;
+}
+
+.wrapper p {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: calc(3px + 2vmin);
+  color: #3e403f;
+}
+
+.text,
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .buttons {
   display: flex;
   justify-content: space-evenly;  
   align-items: center;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
+  padding-top: 25px;
 }
 
 
@@ -65,11 +102,11 @@ button {
   background-color: #f5494c;
   border: 0 solid #E5E7EB;
   box-sizing: border-box;
-  color: #000000;
+  color: #3e403f;
   display: flex;
-  
-  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
+  flex-wrap: wrap;
+  font-family: 'Londrina Solid', cursive;
+  letter-spacing: 0.1em;
   font-size: 1rem;
   font-weight: 700;
   justify-content: center;
@@ -79,7 +116,7 @@ button {
   text-align: center;
   text-decoration: none #000000 solid;
   width: 100%;
-  max-width: 100px;
+  max-width: 120px;
   position: relative;
   cursor: pointer;
   transform: rotate(-5deg);
@@ -111,25 +148,47 @@ button:hover:after {
 
 footer {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #e3d5d6;
   background-color: #3e403f;
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
 }
+
+
 
 /* MEDIA QUERIES */
 
-@media (min-width: 768px) {
-  button {
-    padding: .75rem 3rem;
-    font-size: 1.25rem;
+@media (max-width: 620px) {
+  .buttons {
+    padding-bottom: 25px;
   }
 }
 
+@media (max-width: 500px) {
+  button {
+      padding: .75rem 3rem;
+      font-size: 1.25rem;
+    }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .buttons {
+    flex-direction: column;
   }
+
+  .result h2 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
 }
