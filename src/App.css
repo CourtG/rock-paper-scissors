@@ -15,6 +15,11 @@ font-family: 'Londrina Solid', cursive;
   src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 }
 
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 h1 {
   font-family: 'Londrina Solid', cursive;
   text-align: center;
@@ -46,10 +51,7 @@ footer p {
   letter-spacing: 00.1em;
 }
 
-header {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 /* GENERAL STYLES */
 
@@ -84,6 +86,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 .buttons {

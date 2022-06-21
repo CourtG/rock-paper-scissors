@@ -12,7 +12,7 @@ const App = () => {
   const [result, setResult] = useState(null)
   const [userValue, setUserValue] = useState(0)
   const [computerValue, setComputerValue] = useState(0)
-  const [drawValue, setDrawValue] = useState(0)
+  // const [drawValue, setDrawValue] = useState(0)
 
 
   const choices = ['rock', 'paper', 'scissors']
@@ -24,7 +24,7 @@ const App = () => {
       const data = response.val()
       const {userScore, drawScore, computerScore} = data
       setUserValue(userScore)
-      setDrawValue(drawScore)
+      // setDrawValue(drawScore)
       setComputerValue(computerScore)
     })
   },[])
@@ -87,9 +87,11 @@ const App = () => {
   } 
 
   useEffect(() => {
-  {
+  
     switch(userChoice + computerChoice) {
-
+      default:
+        setResult('Choose your weapon')
+        break
 
       case 'scissorspaper':
         setResult('YOU WIN!')
@@ -136,7 +138,7 @@ const App = () => {
         increaseDrawScore()
         break
     }
-  }
+  
   }, [computerChoice, userChoice])
 
   const generateComputerChoice = () => {
