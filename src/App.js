@@ -83,6 +83,11 @@ const App = () => {
     generateComputerChoice()
   } 
 
+    const generateComputerChoice = () => {
+    const randomChoice = choices[Math.floor(Math.random() * choices.length)]
+    setComputerChoice(randomChoice)
+  }
+
   useEffect(() => {
   
     switch(userChoice + computerChoice) {
@@ -137,11 +142,6 @@ const App = () => {
     }
   
   }, [computerChoice, userChoice])
-
-  const generateComputerChoice = () => {
-    const randomChoice = choices[Math.floor(Math.random() * choices.length)]
-    setComputerChoice(randomChoice)
-  }
 
 
   return (
