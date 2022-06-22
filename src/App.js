@@ -12,7 +12,6 @@ const App = () => {
   const [result, setResult] = useState(null)
   const [userValue, setUserValue] = useState(0)
   const [computerValue, setComputerValue] = useState(0)
-  // const [drawValue, setDrawValue] = useState(0)
 
 
   const choices = ['rock', 'paper', 'scissors']
@@ -24,7 +23,6 @@ const App = () => {
       const data = response.val()
       const {userScore, computerScore} = data
       setUserValue(userScore)
-      // setDrawValue(drawScore)
       setComputerValue(computerScore)
     })
   },[])
@@ -79,12 +77,6 @@ const App = () => {
     })
   
   }
-
-  // function handleHover() {
-  //   setUserChoice('scissors');
-  // }
-  
-
 
   const handleClick = (value) =>  {
     setUserChoice(value)
@@ -164,25 +156,7 @@ const App = () => {
           </div>
 
           <div className="result">
-            {/* <div className="userChoice">
-              <img src= {
-                userChoice !== ''
-                  ? `./assets/${userChoice}.png`
-                  : 
-                } alt="image of choice (rock, paper, or scissors)" />
-            </div> */}
-
-
             <h2>{result}</h2>
-
-            {/* <div className="userChoice">
-              <img src= {
-                userChoice !== null
-                  ? `./assets/${userChoice}.png`
-                  : 
-                } alt="image of choice (rock, paper, or scissors)" />
-            </div> */}
-
           </div>
           
           <div className="buttons">
