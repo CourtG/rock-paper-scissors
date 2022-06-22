@@ -1,38 +1,197 @@
-.App {
+/* FONT STYLES */
+
+@font-face { 
+font-family: 'Londrina Solid', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
+}
+
+@font-face {
+  font-family: 'Londrina Shadow', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap')
+}
+
+@font-face {
+  font-family: 'Press Start 2P', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-family: 'Londrina Solid', cursive;
+  text-align: center;
+  font-size: calc(80px + 2vmin);
+  color: #e3d5d6;
+  text-shadow: 2px 5px #f5494c;
+  margin: 0 auto;
+}
+
+.text h2 {
+  font-family: 'Londrina Shadow', cursive;
+  font-size: calc(20px + 2vmin);
+  color: #3e403f;
+
+}
+
+.result h2 {
+  font-family: 'Londrina Solid', cursive;
+  font-size: calc(70px + 2vmin);
+  color:#f5494c;
+  text-shadow: 2px 2px #e3d5d6;
+}
+
+footer a,
+footer p {
+  text-decoration: none;
+  color: #e3d5d6;
+  font-family: 'Londrina Solid', cursive;
+  letter-spacing: 00.1em;
+}
+
+
+
+/* GENERAL STYLES */
+
+body {
+  background-color: #3DD1E7;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 25px;
+}
+
+.wrapper {
+  margin: 0 0 auto;
+}
+
+.wrapper p {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: calc(3px + 2vmin);
+  color: #3e403f;
+}
+
+.text,
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.buttons {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;  
   align-items: center;
+  padding-bottom: 100px;
+  padding-top: 25px;
+}
+
+
+
+/* BUTTON STYLES */
+
+button {
+  background-color: #f5494c;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #3e403f;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Londrina Solid', cursive;
+  letter-spacing: 0.1em;
+  font-size: 1.75rem;
+  font-weight: 700;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  width: 100%;
+  max-width: 165px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-5deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.App-link {
-  color: #61dafb;
+button:focus {
+  outline: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:after {
+  content: '';
+  position: absolute;
+  border: 2px solid #e3d5d6;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+button:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+/* FOOTER STYLES */
+
+footer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e3d5d6;
+  background-color: #3e403f;
+  position: fixed;
+  padding: 0px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 620px) {
+  .buttons {
+    padding-bottom: 25px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 500px) {
+  button {
+      padding: .75rem 3rem;
+      font-size: 1.25rem;
+    }
+
+  .text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .result h2 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
 }
