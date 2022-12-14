@@ -23,7 +23,7 @@ header {
 h1 {
   font-family: 'Londrina Solid', cursive;
   text-align: center;
-  font-size: calc(80px + 2vmin);
+  font-size: calc(80px + 5vmin);
   color: #e3d5d6;
   text-shadow: 2px 5px #f5494c;
   margin: 0 auto;
@@ -167,17 +167,29 @@ footer {
 
 /* MEDIA QUERIES */
 
-@media (max-width: 620px) {
+@media (max-width: 700px) {
+  .result h2 {
+      font-size: 70px;
+    }
+}
+
+@media (max-width: 650px) {
+
+  h1 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .buttons {
     padding-bottom: 25px;
   }
 }
 
-@media (max-width: 500px) {
-  button {
-      padding: .75rem 3rem;
-      font-size: 1.25rem;
-    }
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+    padding-top: 5px;
+  }
 
   .text {
     display: flex;
@@ -185,13 +197,58 @@ footer {
     flex-direction: column;
   }
 
-  .buttons {
-    flex-direction: column;
+  button {
+      padding: .75rem 3rem;
+      font-size: 1.25rem;
+    }
+
+  .result h2 {
+    margin-bottom: 15px;
+    margin-top: 0px;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .result h2 {
+    padding-top: 15px;
+    padding-bottom: 25px;
+  }
+
+  .text h2 {
+    margin: 0;
+  }
+
+  h1 {
+    padding-bottom: 20px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 370px) {
+
+  .text h2 {
+    margin: 0;
+  }
+
+  h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 75px;
   }
 
   .result h2 {
-    margin-bottom: 0px;
-    margin-top: 0px;
+    font-size: 2em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  footer p {
+    font-size: 12px;
   }
 
 }
